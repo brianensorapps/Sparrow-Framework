@@ -174,6 +174,22 @@
     [support batchQuad:self];
 }
 
+- (void)setWidth:(float)width
+{
+    _vertexData.vertices[1].position.x = width;
+    _vertexData.vertices[3].position.x = width;
+    [self vertexDataDidChange];
+    [super setWidth:width];
+}
+
+- (void)setHeight:(float)height
+{
+    _vertexData.vertices[2].position.y = height;
+    _vertexData.vertices[3].position.y = height;
+    [self vertexDataDidChange];
+    [super setHeight:height];
+}
+
 + (id)quadWithWidth:(float)width height:(float)height
 {
     return [[self alloc] initWithWidth:width height:height];
